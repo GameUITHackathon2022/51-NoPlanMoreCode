@@ -58,7 +58,7 @@ export default class YControl
 
 	private idleOnEnter()
 	
-	{   if (!this.sprite)return;
+	{   if (this.sprite.body === undefined)return
 		this.sprite.setVelocity(0, 20);
 		this.sprite.play('idle')
         this.scene.time.delayedCall(1000, () => {
@@ -72,6 +72,7 @@ export default class YControl
     }
     
     private JumponUpdate(dt : number){
+		if (this.sprite.body === undefined)return
         this.moveTime += dt;
 		if (!this.sprite)return;
         this.sprite.setVelocity(0, -20);

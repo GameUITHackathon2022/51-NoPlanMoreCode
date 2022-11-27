@@ -75,7 +75,7 @@ export default class Game extends Phaser.Scene {
 				case 'player':
 					{
 						this.penquin = this.matter.add.sprite(x + (width * 0.5), y, 'penquin').setScale(0.5).setFixedRotation()
-
+						this.penquin.setFrictionAir(0.03)
 						this.playerController = new PlayerController(
 							this,
 							this.penquin,
